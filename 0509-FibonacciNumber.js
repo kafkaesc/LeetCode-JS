@@ -38,3 +38,9 @@ function fib(n) {
 		return newFib;
 	}
 }
+
+let st = '';
+for (let i = 0; i < 12; i++) {
+	st += fib(i) + ' ';
+}
+console.log(st);
