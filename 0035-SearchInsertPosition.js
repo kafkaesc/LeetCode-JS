@@ -1,4 +1,6 @@
 /*
+https://leetcode.com/problems/search-insert-position/
+
 Given a sorted array of distinct integers and a target value, return the 
 index if the target is found. If not, return the index where it would be 
 if it were inserted in order.
@@ -29,9 +31,9 @@ function searchInsert(nums, target) {
 	let ceiling = nums.length - 1;
 	let pos = Math.floor((floor + ceiling) / 2);
 
-	// Standard binary search with a floor + ceiling reducing the search area 
-	// of the array by half every time. Typical search functions will return 
-	// false it the element isn't found, but for this spec we will return the 
+	// Standard binary search with a floor + ceiling reducing the search area
+	// of the array by half every time. Typical search functions will return
+	// false it the element isn't found, but for this spec we will return the
 	// ending position + 1 to return the index for inserting target.
 	while (floor <= ceiling) {
 		if (nums[pos] === target) return pos;
