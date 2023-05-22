@@ -23,11 +23,14 @@ function threeSum(nums) {
 	let zeroSumTriplets = [];
 
 	function addToZeroSumTriplets(triplet) {
-		triplet = orderTriplet(triplet);
 		if (!tripletMap.has(triplet.toString())) {
 			tripletMap.set(triplet.toString(), true);
 			zeroSumTriplets.push(triplet);
 		}
+	}
+
+	function tripletMapHasTriplet(triplet) {
+		return tripletMap.has(triplet.toString());
 	}
 
 	// Triplets will be ordered to have consistent keys in the tripletMap
@@ -39,10 +42,8 @@ function threeSum(nums) {
 		for (let j = i + 1; j < nums.length; j++) {
 			for (let k = j + 1; k < nums.length; k++) {
 				if (i !== j && i !== k && j !== k) {
-					let ijkSet = [nums[i], nums[j], nums[k]];
-					if (nums[i] + nums[j] + nums[k] === 0) {
-						addToZeroSumTriplets(ijkSet);
-					}
+					let ijkSet = orderTriplet([nums[i], nums[j], nums[k]]);
+					if (nums[i] + nums[j] + nums[k] === 0) addToZeroSumTriplets(ijkSet);
 				}
 			}
 		}
